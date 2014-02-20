@@ -81,4 +81,4 @@ case $1 in
 esac
 shift
 done
-echo "Finished setup!"
+echo "Finished setup git!"
