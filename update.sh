@@ -7,7 +7,7 @@
 # Date Created: 20/02/2014                                                     #
 # Last Updated: 20/02/2014                                                     #
 # Version: 14.02.20.0001                                                       #
-# Description: Linux Shell script for install & setting git version control    #
+# Description: Simple update and upgrade shell script for Ubuntu               #
 ################################################################################
 set +x
 sudo apt-get update && sudo apt-get dist-upgrade -y
