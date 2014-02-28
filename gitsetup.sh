@@ -2,11 +2,11 @@
 ################################################################################
 # Author: ansidev                                                              #
 # Email: ansidev@gmail.com                                                     #
-# Homepage: http://ansidev.esy.es/blog                                         #
+# Homepage: http://ansidev.uni.me                                              #
 # Filename: gitsetup.sh                                                        #
 # Date Created: 20/02/2014                                                     #
-# Last Updated: 22/02/2014                                                     #
-# Version: 14.02.22                                                            #
+# Last Updated: 28/02/2014                                                     #
+# Version: 14.02.28                                                            #
 # Description: Install & setting git version control for Ubuntu                #
 # Usage: gitsetup --help for full help                                         #
 ################################################################################
@@ -14,8 +14,8 @@
 #Variables
 author=ansidev
 email=ansidev@gmail.com
-homepage=http://ansidev.esy.es/blog
-version=14.02.22  
+homepage=http://ansidev.uni.me
+version=14.02.28  
 #End Variables
 #Functions
 function gitsetup()
@@ -72,7 +72,7 @@ function gittimeout()
 		read -p "Do you want to change timeout for password caching? (y/n) " confirm
 		if [ "$confirm" == y ]; then
 			read -p "Enter timeout in second(s): " timeout
-			git config --global credential.helper 'cache --timeout=$timeout'
+			git config --global credential.helper "cache --timeout=$timeout"
 		fi
 	fi
 }
@@ -95,7 +95,7 @@ function gitinfo()
 	echo "################################################################################"
 	echo "# Author: $author                                                              #"
 	echo "# Email: $email                                                     #"
-	echo "# Homepage: $homepage                                         #"
+	echo "# Homepage: $homepage                                              #"
 	echo "# Version: $version                                                            #"
 	echo "# Description: Install & setting git version control for Ubuntu                #"
 	echo "################################################################################"
@@ -135,6 +135,10 @@ function gitfinish()
 {
 	echo "Finished setup!"
 	exit
+}
+function giterror()
+{
+	printf "%s %s\n%s\n" "gitsetup.sh: unrecognized option" $1 "Try 'gitsetup.sh --help' for more information."
 }
 #End Functions
 
@@ -176,7 +180,7 @@ case $1 in
 		gitfinish
 		;;
 	*)
-		githelp
+		giterror $1
 		;;
 esac
 shift
